@@ -596,6 +596,32 @@ end
 ################
 # => Git segment
 ################
+# Use prettier Nerd Fonts glyphs
+set __branch_glyph     \uF418
+set __detached_glyph   \uF417
+set __tag_glyph        \uF412
+
+set __virtualenv_glyph \uE73C ' '
+set __ruby_glyph       \uE791 ' '
+
+set __vagrant_running_glyph  \uF431 # ↑ 'running'
+set __vagrant_poweroff_glyph \uF433 # ↓ 'poweroff'
+set __vagrant_aborted_glyph  \uF468 # ✕ 'aborted'
+set __vagrant_unknown_glyph  \uF421 # strange cases
+
+set __git_dirty_glyph      \uF448 '' # nf-oct-pencil
+set __git_staged_glyph     \uF0C7 '' # nf-fa-save
+set __git_stashed_glyph    \uF0C6 '' # nf-fa-paperclip
+set __git_untracked_glyph  \uF128 '' # nf-fa-question
+# set __git_untracked_glyph  \uF141 '' # nf-fa-ellipsis_h
+
+set __git_ahead_glyph      \uF47B # nf-oct-chevron_up
+set __git_behind_glyph     \uF47C # nf-oct-chevron_down
+
+set __git_plus_glyph       \uF0DE # fa-sort-asc
+set __git_minus_glyph      \uF0DD # fa-sort-desc
+set __git_plus_minus_glyph \uF0DC # fa-sort
+
 function __budspencer_prompt_git_branch -d 'Return the current branch name'
   set -l branch (command git symbolic-ref HEAD ^ /dev/null | sed -e 's|^refs/heads/||')
   if not test $branch > /dev/null
@@ -617,7 +643,7 @@ function __budspencer_prompt_git_branch -d 'Return the current branch name'
       set_color -b $budspencer_colors[9]
       switch $pwd_style
         case short long
-          echo -n ''(set_color $budspencer_colors[1])'  '$position' '(set_color $budspencer_colors[9])
+          echo -n ''(set_color $budspencer_colors[1])' '$__branch_glyph' '$position' '(set_color $budspencer_colors[9])
         case none
           echo -n ''
       end
@@ -628,7 +654,7 @@ function __budspencer_prompt_git_branch -d 'Return the current branch name'
     set_color -b $budspencer_colors[3]
     switch $pwd_style
       case short long
-        echo -n ''(set_color $budspencer_colors[1])'  '$branch' '(set_color $budspencer_colors[3])
+        echo -n ''(set_color $budspencer_colors[1])' '$__branch_glyph' '$branch' '(set_color $budspencer_colors[3])
       case none
         echo -n ''
     end

@@ -36,7 +36,7 @@
 ###############################################################################
 
 # Define colors
-set -U budspencer_night 000000 083743 445659 fdf6e3 b58900 cb4b16 dc121f af005f 6c71c4 268bd2 2aa198 859900
+set -U budspencer_night ffffff 9933ff 6600ff ffffff 333399 ff6600 ff6666 ff3333 0099cc 0099ff 00ccff 00ff99
 set -U budspencer_day 000000 333333 666666 ffffff ffff00 ff6600 ff0000 ff0033 3300ff 00aaff 00ffff 00ff00
 if not set -q budspencer_colors
   # Values are: black dark_gray light_gray white yellow orange red magenta violet blue cyan green
